@@ -38,7 +38,7 @@ const generateResponse = async (chatElement) => {
     const data = await response.json();
     if (!response.ok) throw new Error(data.error.message);
     
-    // Get the API response text and update the message element
+    
     messageElement.textContent = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, '$1');
   } catch (error) {
     messageElement.classList.add("error");
@@ -52,7 +52,6 @@ const handleChat = () => {
   userMessage = chatInput.value.trim(); 
   if (!userMessage) return;
 
-  // Clear the input textarea and set its height to default
   chatInput.value = "";
   chatInput.style.height = `${inputInitHeight}px`;
 
