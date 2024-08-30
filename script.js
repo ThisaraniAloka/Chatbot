@@ -7,12 +7,10 @@ const sendChatBtn = document.querySelector(".chat-input span");
 let userMessage = null;
 const inputInitHeight = chatInput.scrollHeight;
 
-// API configuration
 const API_KEY = "AIzaSyAxJAQOJ6inv1-wnnaj6zRi9Xl8kMxXVWY"; 
 const API_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${API_KEY}`;
 
 const createChatLi = (message, className) => {
-  // Create a chat <li> element with passed message, className
   const chatLi = document.createElement("li");
   chatLi.classList.add("chat", `${className}`);
   let chatContent = className === "outgoing" ? `<p></p>` : `<span class="material-symbols-outlined">smart_toy</span><p></p>`;
@@ -35,7 +33,6 @@ const generateResponse = async (chatElement) => {
     }),
   }
 
-  // Send POST request to API, get response and set the reponse as paragraph text
   try {
     const response = await fetch(API_URL, requestOptions);
     const data = await response.json();
